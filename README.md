@@ -37,7 +37,8 @@ maven { url = uri("https://jitpack.io") }
 
 ```gradle
 dependencies {
-    	        implementation 'com.github.Excelsior-Technologies-Community:OtpAutoFill:1.0.0'
+    	        	        implementation 'com.github.Excelsior-Technologies-Community:SideSwipeCards:1.0.0'
+
 
 }
 ```
