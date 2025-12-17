@@ -63,27 +63,33 @@ dependencies {
 ```
 ## **Mainactivity code**
 ```
-// 1️⃣ Initialize the card
+// 1️⃣ Initialize the card view
 swipeCard = findViewById(R.id.swipeCard)
 
-// 2️⃣ Set card image
-swipeCard.setCardImage(R.drawable.sample_image)
-
-// 3️⃣ Set swipe listener
+// 2️⃣ Set swipe listener
 swipeCard.setOnSwipeListener(object : OnSwipeListener {
-    override fun onSwiped(direction: SwipeDirection) { /* handle swipe */ }
-    override fun onSwipeProgress(direction: SwipeDirection, progress: Float) { /* optional */ }
-    override fun onSwipeCancelled() { /* optional */ }
+    override fun onSwiped(direction: SwipeDirection) {
+        // Called when card is swiped LEFT or RIGHT
+        // Example: load next card
+        currentCardIndex = (currentCardIndex + 1) % cardData.size
+        loadCard(currentCardIndex)
+    }
+
+    override fun onSwipeProgress(direction: SwipeDirection, progress: Float) {
+        // Optional: called during swipe
+    }
+
+    override fun onSwipeCancelled() {
+        // Optional: called when swipe is released below threshold
+    }
 })
 
-// 4️⃣ Detect swipe start
-swipeCard.setOnSwipeStartListener { /* optional */ }
+// 3️⃣ Load a card (initial or next)
+loadCard(currentCardIndex)
 
-// 5️⃣ Programmatic swipe (optional)
-swipeCard.swipe(SwipeDirection.RIGHT)
+// 4️⃣ Set card image
+swipeCard.setCardImage(cardData[currentCardIndex].imageRes)
 
-// 6️⃣ Reset card (optional)
-swipeCard.reset()
 
 ```
 
