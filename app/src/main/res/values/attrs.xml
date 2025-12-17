@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="SideSwipeCardView">
+        <attr name="swipeThreshold" format="dimension" />
+        <attr name="rotationFactor" format="float" />
+        <attr name="verticalDragFactor" format="float" />
+        <attr name="scaleDownFactor" format="float" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="resetDuration" format="integer" />
+        <attr name="cardCornerRadius" format="dimension" />
+        <attr name="cardElevation" format="dimension" />
+        <!-- Add any others like swipeThreshold if needed -->
+    </declare-styleable>
+</resources>
